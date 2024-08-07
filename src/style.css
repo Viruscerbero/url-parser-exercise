@@ -1,0 +1,80 @@
+:root {
+  --size: 16px;
+  --borderLight: 1px solid lightgray;
+}
+
+h1,
+h2,
+h3 {
+  align-self: center;
+  margin: calc(var(--size)) 0;
+}
+
+h1 {
+  font-size: calc(var(--size) * 3);
+}
+
+h2 {
+  font-size: calc(var(--size) * 2);
+}
+
+h3 {
+  font-size: calc(var(--size) * 1.5);
+}
+
+.app {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 8fr 1fr;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+header > h1 {
+  align-self: center;
+}
+
+main {
+  display: grid;
+  grid-template-rows: 1fr auto auto auto 7fr;
+  grid-row-gap: calc(var(--size) * 2);
+  text-align: center;
+  border: var(--borderLight);
+  width: calc(var(--size) * 38);
+  overflow: auto;
+}
+
+footer {
+  justify-content: center;
+}
+
+.button {
+  width: calc(var(--size) * 6);
+  height: fit-content;
+  margin: calc(var(--size)) 0;
+  justify-self: center;
+}
+
+.input {
+  width: calc(var(--size) * 26);
+  justify-self: center;
+}
+
+.display {
+  display: flex;
+  justify-self: center;
+  width: calc(var(--size) * 26);
+  height: calc(var(--size) * 22);
+  margin: calc(var(--size)) 0;
+  border: var(--borderLight);
+  overflow: auto;
+}
+
+.display pre {
+  text-align: left;
+}
