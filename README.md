@@ -32,3 +32,6 @@ Extracted hash:
         "sort": "desc",
         "limit": 10
     }
+
+## Screenshots
+![URL-parser](https://github.com/user-attachments/assets/42951db7-968a-4333-8ea6-58fbdbe67161)
