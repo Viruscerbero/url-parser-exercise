@@ -3,10 +3,10 @@ export function urlParser(urlFormat, urlInstance) {
   const formatParts = urlFormat.split("/");
 
   // Parse the URL instance to extract both the parts of the endpoint and the query parameters
-  const urlParts = urlInstance.split("?");
+  let [endpoint, queryParams] = urlInstance.split("?");
 
   // Extract the endpoint parts
-  const endpoint = urlParts[0].split("/");
+  endpoint = endpoint.split("/");
 
   // Match url format variable names with endpoint parts and store the coincidences
   const values = {};
@@ -25,9 +25,6 @@ export function urlParser(urlFormat, urlInstance) {
       values[varName] = endpoint[i];
     }
   }
-
-  // Extract the queryParams
-  const queryParams = urlParts[1];
 
   // If there are query parameteres get the pairs
   if (queryParams) {
