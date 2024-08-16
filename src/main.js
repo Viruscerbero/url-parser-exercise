@@ -7,7 +7,7 @@ let app = document.querySelector("#app");
 app.className = "app";
 app.innerHTML = `
     <header>
-      <h1>URL Parser Exercise</h1>
+      <h1>URL Parser</h1>
     </header>
     <main>
       <h3>Enter both a URL format and an actual URL to parse</h3>
