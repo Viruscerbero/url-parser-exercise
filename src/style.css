@@ -3,6 +3,17 @@
   --borderLight: 1px solid lightgray;
 }
 
+html {
+  display: flex;
+  justify-content: center;
+  min-width: 380px;
+  height: 93vh;
+}
+
+body {
+  height: 100%;
+}
+
 h1,
 h2,
 h3 {
@@ -23,11 +34,11 @@ h3 {
 }
 
 .app {
-  height: 100vh;
   display: grid;
-  grid-template-rows: 1fr 8fr 1fr;
+  grid-template-rows: 1fr auto 1fr;
   grid-template-columns: 1fr;
   justify-items: center;
+  border: var(--borderLight);
 }
 
 header {
@@ -41,35 +52,34 @@ header > h1 {
 
 main {
   display: grid;
-  grid-template-rows: 1fr auto auto auto 7fr;
+  grid-template-rows: 1fr min-content min-content min-content auto;
   grid-row-gap: calc(var(--size) * 2);
+  width: calc(var(--size) * 24);
+  padding-bottom: calc(var(--size) * 2);
   text-align: center;
-  border: var(--borderLight);
-  width: calc(var(--size) * 38);
-  overflow: auto;
 }
 
 footer {
-  justify-content: center;
+  display: flex;
+  align-items: center;
 }
 
 .button {
   width: calc(var(--size) * 6);
   height: fit-content;
-  margin: calc(var(--size)) 0;
   justify-self: center;
 }
 
 .input {
-  width: calc(var(--size) * 26);
+  width: calc(var(--size) * 20);
   justify-self: center;
 }
 
 .display {
   display: flex;
   justify-self: center;
-  width: calc(var(--size) * 26);
-  height: calc(var(--size) * 22);
+  width: calc(var(--size) * 20);
+  height: calc(var(--size) * 13);
   margin: calc(var(--size)) 0;
   border: var(--borderLight);
   overflow: auto;
@@ -77,4 +87,26 @@ footer {
 
 .display pre {
   text-align: left;
+}
+
+/* Media queries */
+@media screen and (min-width: 768px) {
+  main {
+    width: calc(var(--size) * 28);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  main {
+    width: calc(var(--size) * 36);
+  }
+
+  .input {
+    width: calc(var(--size) * 22);
+  }
+
+  .display {
+    width: calc(var(--size) * 28);
+    height: calc(var(--size) * 14);
+  }
 }
