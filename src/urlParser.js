@@ -3,13 +3,13 @@ export function urlParser(urlFormat, urlInstance) {
   const formatParts = urlFormat.split("/");
 
   // Parse the URL instance to extract both the parts of the endpoint and the query parameters
-  const urlParts = urlInstance.split("?");
+  let [endpoint, queryParams] = urlInstance.split("?");
 
   // Extract the endpoint parts
-  const endpoint = urlParts[0].split("/");
+  endpoint = endpoint.split("/");
 
   // Match url format variable names with endpoint parts and store the coincidences
-  const values = {};
+  const hashObject = {};
 
   for (let i = 0; i < formatParts.length; i++) {
     const formatPart = formatParts[i];
@@ -22,12 +22,9 @@ export function urlParser(urlFormat, urlInstance) {
         endpoint[i] = parseInt(endpoint[i]);
       }
 
-      values[varName] = endpoint[i];
+      hashObject[varName] = endpoint[i];
     }
   }
-
-  // Extract the queryParams
-  const queryParams = urlParts[1];
 
   // If there are query parameteres get the pairs
   if (queryParams) {
@@ -43,9 +40,10 @@ export function urlParser(urlFormat, urlInstance) {
         uriComponent = parseInt(uriComponent);
       }
 
-      values[key] = uriComponent;
+      hashObject[key] = uriComponent;
     });
   }
 
-  return JSON.stringify(values, null, " ");
+  // Return the hash object
+  return hashObject;
 }

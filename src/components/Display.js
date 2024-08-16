@@ -5,7 +5,10 @@ function Display({ tag, watch, prop }) {
     get() {
       return value;
     },
+
     set(newValue) {
+      newValue = JSON.stringify(newValue, null, " ");
+
       if (newValue !== value) {
         value = newValue;
         tag.innerHTML = `<pre>${newValue}</pre>`;
