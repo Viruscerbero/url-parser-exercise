@@ -9,7 +9,7 @@ export function urlParser(urlFormat, urlInstance) {
   endpoint = endpoint.split("/");
 
   // Match url format variable names with endpoint parts and store the coincidences
-  const values = {};
+  const hashObject = {};
 
   for (let i = 0; i < formatParts.length; i++) {
     const formatPart = formatParts[i];
@@ -22,7 +22,7 @@ export function urlParser(urlFormat, urlInstance) {
         endpoint[i] = parseInt(endpoint[i]);
       }
 
-      values[varName] = endpoint[i];
+      hashObject[varName] = endpoint[i];
     }
   }
 
@@ -40,9 +40,10 @@ export function urlParser(urlFormat, urlInstance) {
         uriComponent = parseInt(uriComponent);
       }
 
-      values[key] = uriComponent;
+      hashObject[key] = uriComponent;
     });
   }
 
-  return JSON.stringify(values, null, " ");
+  // Return the hash object
+  return hashObject;
 }

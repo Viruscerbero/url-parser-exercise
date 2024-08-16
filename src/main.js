@@ -41,7 +41,11 @@ const display = {
 };
 
 function parse() {
-  display.content = urlParser(urlFormatPrompt, urlPrompt);
+  // Get the hash object
+  const hashObject = urlParser(urlFormatPrompt, urlPrompt);
+
+  // Display the hash object
+  display.content = hashObject;
 }
 
 InputText({
