@@ -7,7 +7,7 @@ html {
   display: flex;
   justify-content: center;
   min-width: 380px;
-  height: 93vh;
+  height: 100%;
 }
 
 body {
